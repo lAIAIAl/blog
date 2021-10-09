@@ -1,0 +1,60 @@
+@keyframes fade_in{  
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-webkit-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-o-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+.intro{
+    //background: #d8fff370;
+    background-image: linear-gradient(to right,#d8fff370, #d8fff388, #d8fff370);
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 120px);
+    .intro-title{
+        text-align: center;
+        font-family: 'Titan One', cursive;
+        color: #1f5ba0;
+    }
+    article{
+        margin-top: 70px;
+        p{
+            text-align: center;
+            font-family: 'Titan One', cursive;
+            font-size: 24px;
+            color: #082a50;
+            animation: fade_in ;
+            opacity: 0;
+            -webkit-animation: fade_in 2s;
+            -moz-animation: fade_in 2s;
+            -o-animation: fade_in 2s;
+            -ms-animation: fade_in 2s;
+            animation-fill-mode:forwards;
+            -webkit-animation-fill-mode: forwards;  
+            -o-animation-fill-mode: forwards; 
+            -ms-animation-fill-mode: forwards;   
+            -moz-animation-fill-mode: forwards; 
+        }
+    }
+}
+
+.Fade_in(@index) when (@index < 20){
+    .intro p:nth-child(@{index}){
+        animation-delay: @index*1s;
+    }
+    .Fade_in(@index+1);
+}
+.Fade_in(0);

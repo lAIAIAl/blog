@@ -1,0 +1,57 @@
+ /* 跳动文字 */
+ @keyframes bounce {
+    100% {
+        top: -10px;
+
+        text-shadow: 0 1px 0 #CCC,
+        0 2px 0 #CCC,
+        0 3px 0 #CCC,
+        0 4px 0 #CCC,
+        0 5px 0 #CCC,
+        0 6px 0 #CCC,
+        0 7px 0 #CCC,
+        0 8px 0 #CCC,
+        0 9px 0 #CCC,
+        0 50px 25px rgba(0, 0, 0, .2);
+    }
+}
+ .css-jump {
+    position: fixed;
+    top: 0;
+    cursor: default;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: auto;
+    display: block;
+    padding-top: 30px;
+    height: 80px;
+    text-align: center;
+    color: #1f5ba0;
+    span {
+        position: relative;
+        top: 20px;
+        display: inline-block;
+        animation: bounce .5s ease 10 alternate;
+        font-family: 'Titan One', cursive;
+        font-size: 40px;
+        text-shadow: 0 1px 0 #CCC,
+        0 2px 0 #CCC,
+        0 3px 0 #CCC,
+        0 4px 0 #CCC,
+        0 5px 0 #CCC,
+        0 6px 0 transparent,
+        0 7px 0 transparent,
+        0 8px 0 transparent,
+        0 9px 0 transparent,
+        0 10px 10px rgba(0, 0, 0, .4);
+    }
+}
+.Loop(@index) when (@index < 20){
+    .css-jump span:nth-child(@{index}){
+        animation-delay: @index*.1s;
+    }
+    .Loop(@index+1);
+}
+.Loop(0);
