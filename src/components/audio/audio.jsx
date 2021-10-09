@@ -7,7 +7,7 @@ function Audio(){
     const ref = useRef('sound')
     useEffect(() => {
         setTimeout(() => {
-            //ref.current.play().catch(()=>{})
+            ref.current.play().catch(()=>{})
         }, 5000);
     }, [])
     return (
