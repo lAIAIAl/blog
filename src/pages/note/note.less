@@ -1,0 +1,136 @@
+@keyframes fade_in{  
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-webkit-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-o-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fade_in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+.note{
+    //background: #d8fff370;
+    background-image: linear-gradient(to right,#d8fff370, #d8fff388, #d8fff370);
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 120px);
+    .hidden{
+        display: none;
+    }
+    .note-title{
+        text-align: center;
+        font-family: 'Titan One', cursive;
+        color: #1f5ba0;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+            text-decoration-color: #022146;
+        }
+    }
+    .note-list{
+        color: #022146;
+        padding: 0 30px;
+        font-size: 20px;
+        font-family: 'Titan One', cursive;
+        animation: fade_in ;
+        opacity: 0;
+        -webkit-animation: fade_in .5s;
+        -moz-animation: fade_in .5s;
+        -o-animation: fade_in .5s;
+        -ms-animation: fade_in .5s;
+        animation-fill-mode:forwards;
+        -webkit-animation-fill-mode: forwards;  
+        -o-animation-fill-mode: forwards; 
+        -ms-animation-fill-mode: forwards;   
+        -moz-animation-fill-mode: forwards; 
+    }
+}
+
+.Fade_in(@index) when (@index < 20){
+    .note a:nth-of-type(@{index}) p{
+        animation-delay: @index*.2s;
+    }
+    .Fade_in(@index+1);
+}
+.Fade_in(0);
+
+.context{
+    background:#e6eae0d9;
+    position: relative;
+    height: 100%;
+    padding: 0 120px;
+    overflow: auto;
+    .detail-title{
+        position: absolute;
+        top: 0px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 24px;
+        width: calc(100% - 240px);
+        font-family: 'Titan One', cursive;
+    }
+    .detail-body{
+        margin-top: 60px;
+        margin-bottom: 60px;
+        height: calc(100% - 120px);
+        overflow: auto;
+    }
+    .detail-foot{
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        line-height: 40px;
+        width: calc(100% - 240px);
+        font-size: 20px;
+        font-family: 'Titan One', cursive;
+        display: flex;
+        justify-content: center;
+        span{
+            flex: 1;
+            text-align: center;
+        }
+        .date{
+            font-size: 16px;
+        }
+    }
+}
+
+.detail-body::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 0px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.detail-body::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius   : 10px;
+    background-color: skyblue;
+    background-image: -webkit-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+}
+.detail-body::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #ededed;
+    border-radius: 10px;
+}

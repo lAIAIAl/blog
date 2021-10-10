@@ -38,6 +38,7 @@ const array = [
     {id:37,href:"https://segmentfault.com/a/1190000021966814",discription:"Web 中高级前端面试题集合（200+）"},
     {id:38,href:"https://github.com/paddingme/Front-end-Web-Development-Interview-Question",discription:"前端面试笔试题"},
     {id:39,href:"https://www.cnblogs.com/my466879168/p/13681479.html",discription:"react项目中使用less"},
+    {id:40,href:"https://tool.lu/favicon/",discription:"在线ico制作工具网站"},
 ]
 
 export default array;
